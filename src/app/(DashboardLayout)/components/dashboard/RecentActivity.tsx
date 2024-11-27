@@ -1,20 +1,19 @@
-
 import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCard';
 import {
   Timeline,
-  TimelineItem,
-  TimelineOppositeContent,
-  TimelineSeparator,
-  TimelineDot,
   TimelineConnector,
   TimelineContent,
+  TimelineDot,
+  TimelineItem,
+  TimelineOppositeContent,
   timelineOppositeContentClasses,
+  TimelineSeparator,
 } from '@mui/lab';
 import { Link, Typography } from '@mui/material';
 
-const RecentTransactions = () => {
+const RecentActivity = () => {
   return (
-    <DashboardCard title="Recent Transactions">
+    <DashboardCard title="Recent Activities & logs">
       <>
         <Timeline
           className="theme-timeline"
@@ -26,12 +25,14 @@ const RecentTransactions = () => {
             mb: '-40px',
             '& .MuiTimelineConnector-root': {
               width: '1px',
-              backgroundColor: '#efefef'
+              backgroundColor: '#efefef',
             },
             [`& .${timelineOppositeContentClasses.root}`]: {
               flex: 0.5,
               paddingLeft: 0,
             },
+            maxHeight: '300px',
+            overflowY: 'scroll',
           }}
         >
           <TimelineItem>
@@ -40,7 +41,12 @@ const RecentTransactions = () => {
               <TimelineDot color="primary" variant="outlined" />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent>Payment received from John Doe of $385.90</TimelineContent>
+            <TimelineContent>
+              <Typography fontWeight="600">New session created</Typography>
+              <Link href="/" underline="none">
+                #ML-3467
+              </Link>
+            </TimelineContent>
           </TimelineItem>
           <TimelineItem>
             <TimelineOppositeContent>10:00 am</TimelineOppositeContent>
@@ -48,11 +54,12 @@ const RecentTransactions = () => {
               <TimelineDot color="secondary" variant="outlined" />
               <TimelineConnector />
             </TimelineSeparator>
+
             <TimelineContent>
-              <Typography fontWeight="600">New sale recorded</Typography>{' '}
               <Link href="/" underline="none">
                 #ML-3467
               </Link>
+              <Typography fontWeight="600">assigned new proxy</Typography>
             </TimelineContent>
           </TimelineItem>
           <TimelineItem>
@@ -64,34 +71,24 @@ const RecentTransactions = () => {
             <TimelineContent>Payment was made of $64.95 to Michael</TimelineContent>
           </TimelineItem>
           <TimelineItem>
-            <TimelineOppositeContent>09:30 am</TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineDot color="warning" variant="outlined" />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>
-              <Typography fontWeight="600">New sale recorded</Typography>{' '}
-              <Link href="/" underline="none">
-                #ML-3467
-              </Link>
-            </TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineOppositeContent>09:30 am</TimelineOppositeContent>
+            <TimelineOppositeContent>01:30 pm</TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot color="error" variant="outlined" />
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-              <Typography fontWeight="600">New arrival recorded</Typography>
+              <Typography fontWeight="600">New session created</Typography>
+              <Link href="/" underline="none">
+                #ML-3468
+              </Link>
             </TimelineContent>
           </TimelineItem>
           <TimelineItem>
-            <TimelineOppositeContent>12:00 am</TimelineOppositeContent>
+            <TimelineOppositeContent>04:00 pm</TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineDot color="success" variant="outlined" />
+              <TimelineDot color="error" variant="outlined" />
             </TimelineSeparator>
-            <TimelineContent>Payment Received</TimelineContent>
+            <TimelineContent>Session turned off [Error: 502 bad gateway]</TimelineContent>
           </TimelineItem>
         </Timeline>
       </>
@@ -99,4 +96,4 @@ const RecentTransactions = () => {
   );
 };
 
-export default RecentTransactions;
+export default RecentActivity;

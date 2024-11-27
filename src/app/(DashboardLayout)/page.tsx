@@ -1,21 +1,20 @@
-'use client'
-import { Grid, Box } from '@mui/material';
+'use client';
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import { Box, Grid } from '@mui/material';
 // components
-import SalesOverview from '@/app/(DashboardLayout)/components/dashboard/SalesOverview';
+
+import RecentActivity from '@/app/(DashboardLayout)/components/dashboard/RecentActivity';
+import SessionOverviewMetrics from '@/app/(DashboardLayout)/components/dashboard/SessionOverviewMetrics';
+import SessionsTable from '@/app/(DashboardLayout)/components/dashboard/SessionsTable';
 import YearlyBreakup from '@/app/(DashboardLayout)/components/dashboard/YearlyBreakup';
-import RecentTransactions from '@/app/(DashboardLayout)/components/dashboard/RecentTransactions';
-import ProductPerformance from '@/app/(DashboardLayout)/components/dashboard/ProductPerformance';
-import Blog from '@/app/(DashboardLayout)/components/dashboard/Blog';
-import MonthlyEarnings from '@/app/(DashboardLayout)/components/dashboard/MonthlyEarnings';
 
 const Dashboard = () => {
   return (
-    <PageContainer title="Dashboard" description="this is Dashboard">
+    <PageContainer title="Dashboard" description="Sessions Management">
       <Box>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={8}>
-            <SalesOverview />
+            <SessionOverviewMetrics />
           </Grid>
           <Grid item xs={12} lg={4}>
             <Grid container spacing={3}>
@@ -23,23 +22,17 @@ const Dashboard = () => {
                 <YearlyBreakup />
               </Grid>
               <Grid item xs={12}>
-                <MonthlyEarnings />
+                <RecentActivity />
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} lg={4}>
-            <RecentTransactions />
-          </Grid>
-          <Grid item xs={12} lg={8}>
-            <ProductPerformance />
-          </Grid>
           <Grid item xs={12}>
-            <Blog />
+            <SessionsTable />
           </Grid>
         </Grid>
       </Box>
     </PageContainer>
-  )
-}
+  );
+};
 
 export default Dashboard;
