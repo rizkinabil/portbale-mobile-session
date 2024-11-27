@@ -5,14 +5,20 @@ import { uniqueId } from 'lodash';
 const Menuitems = [
   {
     navlabel: true,
-    subheader: 'Home',
+    subheader: 'Dashboard',
   },
 
   {
     id: uniqueId(),
-    title: 'Dashboard',
+    title: 'Overview',
     icon: IconLayoutDashboard,
     href: '/',
+  },
+  {
+    id: uniqueId(),
+    title: 'Proxy Management',
+    icon: IconLayoutDashboard,
+    href: '/proxy-management',
   },
   // {
   //   navlabel: true,
